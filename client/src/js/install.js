@@ -1,26 +1,19 @@
-const butInstall = document.getElementById('buttonInstall');
+const installBtn = document.getElementById('installBtn');
+const textHeader = document.getElementById('textHeader');
 
 window.addEventListener('beforeinstallprompt', (event) => {
-     window.deferredPrompt = event;
+  event.preventDefault();
+  installBtn.style.visibility = 'visible';
+  textHeader.textContent = 'Click the button to install J.A.T.E!';
 
-     butInstall.classList.toggle('hidden', false);
+  installBtn.addEventListener('click', () => {
+    event.prompt();
+    installBtn.setAttribute('disabled', true);
+    installBtn.textContent = 'J.A.T.E has been installed!';
+  });
 });
-
-butInstall.addEventListener('click', async () => {
-    const promptEvent = window.deferredPrompt;
-
-  if (!promptEvent) {
-   return;
-  }
-
-  promptEvent.prompt();
-  
-  window.deferredPrompt = null;
-  
-  butInstall.classList.toggle('hidden', true);
-});
-
 
 window.addEventListener('appinstalled', (event) => {
-    window.deferredPrompt = null;
+  textHeader.textContent = 'Successfully installed J.A.T.E!';
+  console.log('great!', 'appinstalled', event);
 });
