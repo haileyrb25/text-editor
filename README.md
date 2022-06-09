@@ -48,7 +48,7 @@ Below you will find the mockup video and link to the video!
 
 ![](jate.gif)
 
-![Link to video](https://drive.google.com/file/d/1rmb724-AkPq0zr4FNwDcygvJoalrHwGK/view)
+[Link to video](https://drive.google.com/file/d/1rmb724-AkPq0zr4FNwDcygvJoalrHwGK/view)
 
 # My Description
 
