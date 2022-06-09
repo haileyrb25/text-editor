@@ -1,5 +1,4 @@
 import { openDB } from 'idb';
-
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -11,28 +10,25 @@ const initdb = async () =>
       console.log('jate database created');
     },
   });
-
-
 export const putDb = async (content) => {
-  console.error('putDb not implemented');
-  const editsDb = await openDB('edit', 1);
-  const tx = editsDb.transaction('edit', 'readwrite');
-  const store = tx.objectStore('edit');
-  const request = store.put({ id: id, edit: content });
+  console.log('PUT to the database');
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readwrite');
+  const store = tx.objectStore('jate');
+  const request = store.put({ id: 1, value: content });
   const result = await request;
-  console.log('Data saved to the database', result);
+  console.log(':rocket: - data saved to the database', result.value);
 };
-
 export const getDb = async () => {
-  console.error('getDb not implemented');
- const editsDb = await openDB('edit', 1);
- const tx = editsDb.transaction('edit', 'readonly');
- const store = tx.objectStore('edit');
- const request = store.getAll();
- const result = await request;
- console.log('result.value', result);
- return result;
-
+  console.log('GET from the database');
+  const jateDb = await openDB('jate', 1);
+  const tx = jateDb.transaction('jate', 'readonly');
+  const store = tx.objectStore('jate');
+  const request = store.get(1);
+  const result = await request;
+  result
+    ? console.log(':rocket: - data retrieved from the database', result.value)
+    : console.log(':rocket: - data not found in the database');
+  return result?.value;
 };
-
 initdb();
