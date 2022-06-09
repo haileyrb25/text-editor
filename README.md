@@ -44,7 +44,11 @@ You will deploy this full-stack application to Heroku using the Heroku Deploymen
 
 # Mock up
 
-Below you will find the mockup video and link to the video, as well as some screenshots!
+Below you will find the mockup video and link to the video!
+
+![](jate.gif)
+
+![Link to video](https://drive.google.com/file/d/1rmb724-AkPq0zr4FNwDcygvJoalrHwGK/view)
 
 # My Description
 
